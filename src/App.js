@@ -6,7 +6,7 @@ import Login from "./pages/Login";
 import { useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase-config";
-
+import { signInWithGoogle } from  "./pages/Login";;
 function App() {
   const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
 
@@ -20,7 +20,11 @@ function App() {
 
   return (
     <Router>
+      
       <nav>
+      <Link to="#"><img src={localStorage.getItem("profilePic")} width="50"/></Link>
+      <Link to="#" className="name"> {localStorage.getItem("name")}</Link>
+     
         <Link to="/"> Home </Link>
 
         {!isAuth ? (
